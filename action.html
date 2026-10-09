@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Take action and set follow-up</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F4F6F8}
+a{color:#1B2631}a:hover{color:#8A5300}
+.app{display:flex;flex-wrap:wrap;min-height:100vh;font-family:'IBM Plex Sans',sans-serif;color:#18222D;background:#F4F6F8}
+.side{flex:1 1 220px;max-width:100%;background:#1B2631;color:#E8EDF2;padding:24px 16px;box-sizing:border-box;display:flex;flex-direction:column;gap:4px}
+@media(min-width:900px){.side{max-width:248px}}
+.brand{display:flex;align-items:center;gap:10px;padding:0 8px 20px}
+.mark{width:32px;height:32px;border-radius:8px;background:#E89B0C;display:flex;align-items:center;justify-content:center}
+.brandname{font-weight:700;font-size:15px;line-height:1.2;color:#FFFFFF}
+.nav{display:flex;align-items:center;gap:10px;min-height:44px;padding:0 12px;border-radius:8px;color:#C9D3DD;text-decoration:none;font-size:14px;font-weight:500}
+.nav:hover{background:#26384A;color:#FFFFFF}
+.nav.on{background:#2E4357;color:#FFFFFF}
+.navcount{margin-left:auto;background:#E89B0C;color:#1B2631;font-size:12px;font-weight:700;border-radius:10px;padding:1px 8px}
+.who{margin-top:auto;display:flex;align-items:center;gap:10px;padding:16px 8px 0;border-top:1px solid #2E4357}
+.avatar{width:36px;height:36px;border-radius:50%;background:#E89B0C;color:#1B2631;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;flex:none}
+.main{flex:999 1 560px;min-width:0;padding:32px;box-sizing:border-box}
+.wrap{max-width:1160px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
+.card{background:#FFFFFF;border:1px solid #DDE2E8;border-radius:12px;padding:20px}
+.h2{margin:0;font-size:17px;font-weight:600}
+.muted{color:#4A5866}
+.small{font-size:13px}
+.mono{font-family:'IBM Plex Mono',monospace}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;border-radius:999px;padding:3px 10px;white-space:nowrap}
+.high{background:#FBE4DA;color:#9A3410}
+.pot{background:#FFFFFF;color:#6E4300;border:1px dashed #B87503}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 18px;border-radius:8px;font:600 14px 'IBM Plex Sans',sans-serif;text-decoration:none;border:1px solid transparent;cursor:pointer}
+.btn-primary{background:#1B2631;color:#FFFFFF}
+.btn-primary:hover{background:#2E4357;color:#FFFFFF}
+.btn-ghost{background:#FFFFFF;color:#1B2631;border-color:#C7CFD8}
+.btn-ghost:hover{background:#EEF1F4;color:#1B2631}
+.row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.top{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.label{display:block;font-size:13px;font-weight:600;margin-bottom:6px}
+.input{width:100%;box-sizing:border-box;min-height:44px;padding:10px 12px;border:1px solid #C7CFD8;border-radius:8px;font:14px 'IBM Plex Sans',sans-serif;color:#18222D;background:#FFFFFF}
+.opt{display:flex;gap:12px;align-items:flex-start;padding:14px;border:1px solid #DDE2E8;border-radius:10px;cursor:pointer}
+.opt.sel{border:2px solid #1B2631;background:#F7F9FB}
+.step{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600}
+.dot{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px}
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div class="app">
+  <nav class="side" aria-label="Main">
+    <div class="brand">
+      <div class="mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1B2631" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3"></path><path d="M11 8v3l2 2"></path></svg></div>
+      <div class="brandname">Invisible Delay<br>Detector</div>
+    </div>
+    <a class="nav" href="index.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"></path></svg>Home</a>
+    <a class="nav" href="projects.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="M3 9h18M9 20V9"></path></svg>My Projects</a>
+    <a class="nav on" href="warning.html" aria-current="page"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3l9 16H3z"></path><path d="M12 10v4M12 17v.5"></path></svg>Delay Detector<span class="navcount">7</span></a>
+    <a class="nav" href="priorities.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11"></path><path d="M4 6l1 1 2-2M4 12l1 1 2-2M4 18l1 1 2-2"></path></svg>Daily Priorities</a>
+    <a class="nav" href="team.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="8" r="3"></circle><path d="M3 20c0-3 3-5 6-5s6 2 6 5"></path><circle cx="17" cy="9" r="2.5"></circle><path d="M17 14c2.5 0 4 1.5 4 4"></path></svg>Team and Resources</a>
+    <a class="nav" href="outcome.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M8 12l3 3 5-6"></path></svg>Interventions</a>
+    <a class="nav" href="assistant.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"></path></svg>Assistant</a>
+    <div class="who"><div class="avatar">LM</div><div><div style="font-size:14px;font-weight:600;color:#FFFFFF">Lorraine Marezva</div><div style="font-size:12px;color:#AEB9C5">Project manager</div></div></div>
+  </nav>
+
+  <main class="main">
+    <div class="wrap">
+      <div>
+        <a class="small" href="warning.html">← Back to warning</a>
+        <h1 style="margin: 12px 0 0; font-size: 28px; font-weight: 700">Take action on S-201</h1>
+        <div class="row" style="margin-top: 16px; gap: 20px">
+          <span class="step"><span class="dot" style="background: #1B2631; color: #FFFFFF">1</span>Choose action</span>
+          <span style="width: 32px; border-top: 1px solid #C7CFD8"></span>
+          <span class="step"><span class="dot" style="background: #1B2631; color: #FFFFFF">2</span>Owner and message</span>
+          <span style="width: 32px; border-top: 1px solid #C7CFD8"></span>
+          <span class="step"><span class="dot" style="background: #1B2631; color: #FFFFFF">3</span>Follow-up and success check</span>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-start">
+        <div style="flex: 3 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+          <section class="card">
+            <h2 class="h2">1 · What will you do?</h2>
+            <fieldset style="border: 0; padding: 0; margin: 14px 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+              <legend style="position: absolute; left: -9999px">Action type</legend>
+              <label class="opt sel"><input type="radio" name="act" checked style="margin-top: 3px"><span><span style="font-weight: 600; font-size: 14px; display: block">Confirm status and get a decision date</span><span class="small muted">Recommended · lowest effort</span></span></label>
+              <label class="opt"><input type="radio" name="act" style="margin-top: 3px"><span><span style="font-weight: 600; font-size: 14px; display: block">Escalate to the project owner</span><span class="small muted">Use if no reply in 2 days</span></span></label>
+              <label class="opt"><input type="radio" name="act" style="margin-top: 3px"><span><span style="font-weight: 600; font-size: 14px; display: block">Resequence work</span><span class="small muted">Start other electrical tasks first</span></span></label>
+              <label class="opt"><input type="radio" name="act" style="margin-top: 3px"><span><span style="font-weight: 600; font-size: 14px; display: block">Assign a decision owner</span><span class="small muted">For the S-201 comments item</span></span></label>
+            </fieldset>
+          </section>
+
+          <section class="card">
+            <h2 class="h2">2 · Who acts, and what do they hear?</h2>
+            <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 14px">
+              <div><label class="label" for="owner">Action owner</label><select id="owner" class="input"><option>You (Lorraine Marezva)</option><option>Joel Kim, electrical lead</option><option>Sam Ruiz, project architect</option></select></div>
+              <div><label class="label" for="to">Send to</label><input id="to" class="input" type="text" value="Dana Okafor, Okafor Engineering"></div>
+            </div>
+            <div style="margin-top: 16px"><label class="label" for="msg">Message (drafted, edit before sending)</label>
+              <textarea id="msg" class="input" rows="6" style="resize: vertical; line-height: 1.5">Hi Dana, S-201 was due back on Oct 3 and our electrical team is waiting on it to finish the panel schedule. Could you let me know where the review stands and a realistic date we can expect comments? If anything is blocking you, tell me and I'll help clear it. Thanks, Lorraine</textarea></div>
+          </section>
+
+          <section class="card">
+            <h2 class="h2">3 · How will we know it worked?</h2>
+            <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 14px">
+              <div><label class="label" for="fu">Follow-up date</label><input id="fu" class="input" type="text" value="Tue, Oct 13"></div>
+              <div><label class="label" for="esc">If no reply by then</label><select id="esc" class="input"><option>Suggest escalation to project owner</option><option>Remind me only</option></select></div>
+            </div>
+            <div style="margin-top: 16px"><span class="label">Success check (tracked automatically)</span>
+              <label class="row small" style="gap: 10px; min-height: 36px"><input type="checkbox" checked>S-201 shows "Approved" in the submittal log by Oct 14</label>
+              <label class="row small" style="gap: 10px; min-height: 36px"><input type="checkbox" checked>Electrical design released by Oct 16</label>
+              <label class="row small" style="gap: 10px; min-height: 36px"><input type="checkbox" checked>Rough-in start stays on Nov 18</label>
+            </div>
+          </section>
+
+          <div class="row" style="gap: 12px"><a class="btn btn-primary" href="outcome.html">Send and start tracking</a><a class="btn btn-ghost" href="warning.html">Cancel</a></div>
+        </div>
+
+        <aside class="card" style="flex: 2 1 300px; min-width: 0; background: #F7F9FB">
+          <div class="small muted" style="font-weight: 600">This action addresses</div>
+          <div class="row" style="gap: 8px; margin-top: 10px"><span class="chip high">High</span><span class="chip pot">Potential delay</span></div>
+          <div style="font-weight: 600; margin-top: 10px">S-201 approval is 6 days overdue</div>
+          <div class="small muted" style="margin-top: 6px">Eastview Community Clinic</div>
+          <div class="small mono muted" style="margin-top: 14px; line-height: 1.7">S-201 approval<br>→ Electrical design<br>→ Switchgear order<br>→ Rough-in start, Nov 18</div>
+          <div style="margin-top: 16px; padding-top: 14px; border-top: 1px solid #DDE2E8">
+            <div class="small" style="font-weight: 600">What happens next</div>
+            <ol class="small muted" style="margin: 8px 0 0; padding-left: 18px; line-height: 1.7">
+              <li>Message is sent and logged as an intervention</li>
+              <li>The detector watches the submittal log daily</li>
+              <li>You are reminded on Oct 13 if nothing changes</li>
+              <li>The outcome is recorded against your success check</li>
+            </ol>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

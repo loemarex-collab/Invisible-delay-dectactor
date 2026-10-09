@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Warning detail and delay chain</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F4F6F8}
+a{color:#1B2631}a:hover{color:#8A5300}
+.app{display:flex;flex-wrap:wrap;min-height:100vh;font-family:'IBM Plex Sans',sans-serif;color:#18222D;background:#F4F6F8}
+.side{flex:1 1 220px;max-width:100%;background:#1B2631;color:#E8EDF2;padding:24px 16px;box-sizing:border-box;display:flex;flex-direction:column;gap:4px}
+@media(min-width:900px){.side{max-width:248px}}
+.brand{display:flex;align-items:center;gap:10px;padding:0 8px 20px}
+.mark{width:32px;height:32px;border-radius:8px;background:#E89B0C;display:flex;align-items:center;justify-content:center}
+.brandname{font-weight:700;font-size:15px;line-height:1.2;color:#FFFFFF}
+.nav{display:flex;align-items:center;gap:10px;min-height:44px;padding:0 12px;border-radius:8px;color:#C9D3DD;text-decoration:none;font-size:14px;font-weight:500}
+.nav:hover{background:#26384A;color:#FFFFFF}
+.nav.on{background:#2E4357;color:#FFFFFF}
+.navcount{margin-left:auto;background:#E89B0C;color:#1B2631;font-size:12px;font-weight:700;border-radius:10px;padding:1px 8px}
+.who{margin-top:auto;display:flex;align-items:center;gap:10px;padding:16px 8px 0;border-top:1px solid #2E4357}
+.avatar{width:36px;height:36px;border-radius:50%;background:#E89B0C;color:#1B2631;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;flex:none}
+.main{flex:999 1 560px;min-width:0;padding:32px;box-sizing:border-box}
+.wrap{max-width:1160px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
+.card{background:#FFFFFF;border:1px solid #DDE2E8;border-radius:12px;padding:20px}
+.h2{margin:0;font-size:17px;font-weight:600}
+.muted{color:#4A5866}
+.small{font-size:13px}
+.mono{font-family:'IBM Plex Mono',monospace}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;border-radius:999px;padding:3px 10px;white-space:nowrap}
+.high{background:#FBE4DA;color:#9A3410}
+.med{background:#FCEFCF;color:#6E4300}
+.low{background:#E6ECF2;color:#33475B}
+.pot{background:#FFFFFF;color:#6E4300;border:1px dashed #B87503}
+.conf{background:#1B2631;color:#FFFFFF}
+.good{background:#DDF0E5;color:#1D6B45}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 18px;border-radius:8px;font:600 14px 'IBM Plex Sans',sans-serif;text-decoration:none;border:1px solid transparent;cursor:pointer}
+.btn-primary{background:#1B2631;color:#FFFFFF}
+.btn-primary:hover{background:#2E4357;color:#FFFFFF}
+.btn-ghost{background:#FFFFFF;color:#1B2631;border-color:#C7CFD8}
+.btn-ghost:hover{background:#EEF1F4;color:#1B2631}
+.row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.top{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.ev{display:flex;gap:14px;padding:14px 0;border-top:1px solid #E6EAEE}
+.evicon{width:36px;height:36px;border-radius:8px;background:#EEF1F4;display:flex;align-items:center;justify-content:center;flex:none}
+.node{flex:1 1 170px;min-width:0;border-radius:10px;padding:14px;background:#FFFFFF}
+.arrow{flex:0 0 32px;display:flex;align-items:center;justify-content:center;color:#7F8C99}
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div class="app">
+  <nav class="side" aria-label="Main">
+    <div class="brand">
+      <div class="mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1B2631" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3"></path><path d="M11 8v3l2 2"></path></svg></div>
+      <div class="brandname">Invisible Delay<br>Detector</div>
+    </div>
+    <a class="nav" href="index.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"></path></svg>Home</a>
+    <a class="nav" href="projects.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="M3 9h18M9 20V9"></path></svg>My Projects</a>
+    <a class="nav on" href="warning.html" aria-current="page"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3l9 16H3z"></path><path d="M12 10v4M12 17v.5"></path></svg>Delay Detector<span class="navcount">7</span></a>
+    <a class="nav" href="priorities.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11"></path><path d="M4 6l1 1 2-2M4 12l1 1 2-2M4 18l1 1 2-2"></path></svg>Daily Priorities</a>
+    <a class="nav" href="team.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="8" r="3"></circle><path d="M3 20c0-3 3-5 6-5s6 2 6 5"></path><circle cx="17" cy="9" r="2.5"></circle><path d="M17 14c2.5 0 4 1.5 4 4"></path></svg>Team and Resources</a>
+    <a class="nav" href="outcome.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M8 12l3 3 5-6"></path></svg>Interventions</a>
+    <a class="nav" href="assistant.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"></path></svg>Assistant</a>
+    <div class="who"><div class="avatar">LM</div><div><div style="font-size:14px;font-weight:600;color:#FFFFFF">Lorraine Marezva</div><div style="font-size:12px;color:#AEB9C5">Project manager</div></div></div>
+  </nav>
+
+  <main class="main">
+    <div class="wrap">
+      <div>
+        <a class="small" href="index.html">← Back to dashboard</a>
+        <div class="row" style="gap: 8px; margin-top: 14px"><span class="chip high">High</span><span class="chip pot">Potential delay · not confirmed</span><span class="small muted">Eastview Community Clinic · detected today, 7:40 am</span></div>
+        <h1 style="margin: 10px 0 0; font-size: 28px; font-weight: 700">Structural drawing S-201 approval is 6 days overdue</h1>
+        <p class="muted" style="margin: 8px 0 0; font-size: 15px; max-width: 760px">If S-201 is not approved by Oct 13, the electrical rough-in start on Nov 18 is likely to slip. Nothing has slipped yet, so this is a potential delay.</p>
+      </div>
+
+      <section class="card">
+        <div class="top"><div><h2 class="h2">Delay chain</h2><div class="small muted" style="margin-top: 4px">How this one issue could spread to the milestone</div></div>
+          <div class="row small muted" style="gap: 16px"><span class="row" style="gap: 6px"><span style="width: 22px; border-top: 2px solid #1B2631; display: inline-block"></span>Verified dependency</span><span class="row" style="gap: 6px"><span style="width: 22px; border-top: 2px dashed #B87503; display: inline-block"></span>Inferred, confirm it</span></div>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; align-items: stretch; gap: 0; margin-top: 18px">
+          <div class="node" style="border: 2px solid #9A3410; background: #FDF3EE">
+            <div class="small" style="color: #9A3410; font-weight: 600">Hidden signal</div>
+            <div style="font-weight: 600; margin-top: 4px">S-201 approval</div>
+            <div class="small muted" style="margin-top: 4px">Due Oct 3 · 6 days overdue</div>
+            <div class="small muted">Dana Okafor, structural engineer</div>
+          </div>
+          <div class="arrow" aria-hidden="true"><svg width="28" height="14" viewBox="0 0 28 14"><path d="M0 7h22" stroke="#1B2631" stroke-width="2"></path><path d="M20 2l6 5-6 5" fill="none" stroke="#1B2631" stroke-width="2"></path></svg></div>
+          <div class="node" style="border: 2px solid #1B2631">
+            <div class="small muted" style="font-weight: 600">Blocked task</div>
+            <div style="font-weight: 600; margin-top: 4px">Electrical design</div>
+            <div class="small muted" style="margin-top: 4px">Panel schedule waits on S-201</div>
+            <div class="small muted">Joel Kim · 4 days of slack left</div>
+          </div>
+          <div class="arrow" aria-hidden="true"><svg width="28" height="14" viewBox="0 0 28 14"><path d="M0 7h22" stroke="#B87503" stroke-width="2" stroke-dasharray="4 3"></path><path d="M20 2l6 5-6 5" fill="none" stroke="#B87503" stroke-width="2"></path></svg></div>
+          <div class="node" style="border: 2px dashed #B87503">
+            <div class="small muted" style="font-weight: 600">At risk</div>
+            <div style="font-weight: 600; margin-top: 4px">Switchgear order</div>
+            <div class="small muted" style="margin-top: 4px">10-week lead time</div>
+            <div class="small muted">Link inferred from an email</div>
+          </div>
+          <div class="arrow" aria-hidden="true"><svg width="28" height="14" viewBox="0 0 28 14"><path d="M0 7h22" stroke="#1B2631" stroke-width="2"></path><path d="M20 2l6 5-6 5" fill="none" stroke="#1B2631" stroke-width="2"></path></svg></div>
+          <div class="node" style="border: 2px solid #1B2631; background: #FCEFCF">
+            <div class="small" style="color: #6E4300; font-weight: 600">Milestone</div>
+            <div style="font-weight: 600; margin-top: 4px">Electrical rough-in start</div>
+            <div class="small muted" style="margin-top: 4px">Nov 18 · schedule shows on track</div>
+            <div class="small muted">Possible slip: 1 to 2 weeks</div>
+          </div>
+        </div>
+        <div class="row" style="margin-top: 16px; padding: 12px 14px; border-radius: 8px; background: #FFF8EA; border: 1px solid #F0D9A8">
+          <span class="small" style="font-weight: 600; color: #6E4300">Confirm this link:</span>
+          <span class="small">Does the switchgear order wait on the electrical panel schedule?</span>
+          <span style="margin-left: auto" class="row"><button class="btn btn-ghost" type="button" style="min-height: 36px">Yes, it does</button><button class="btn btn-ghost" type="button" style="min-height: 36px">No</button></span>
+        </div>
+      </section>
+
+      <div style="display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-start">
+        <section class="card" style="flex: 3 1 520px; min-width: 0">
+          <h2 class="h2">Why this was flagged</h2>
+          <div class="small muted" style="margin: 4px 0 8px">4 pieces of evidence from project records. Open any item to see the source.</div>
+          <div class="ev"><div class="evicon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#33475B" stroke-width="2" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"></rect><path d="M8 8h8M8 12h8M8 16h5"></path></svg></div><div style="flex: 1; min-width: 0"><div class="row" style="justify-content: space-between"><span style="font-weight: 600; font-size: 14px">Submittal log</span><span class="small mono muted">Oct 9</span></div><div class="small muted" style="margin-top: 2px">S-201 submitted Sep 25, review due Oct 3. Status still "Under review".</div></div></div>
+          <div class="ev"><div class="evicon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#33475B" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg></div><div style="flex: 1; min-width: 0"><div class="row" style="justify-content: space-between"><span style="font-weight: 600; font-size: 14px">Email from Joel Kim</span><span class="small mono muted">Oct 6</span></div><div class="small muted" style="margin-top: 2px">"Can't finalize the panel schedule until S-201 comes back." Switchgear sizing is mentioned in the same thread.</div></div></div>
+          <div class="ev"><div class="evicon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#33475B" stroke-width="2" aria-hidden="true"><circle cx="9" cy="9" r="3"></circle><circle cx="17" cy="11" r="2.5"></circle><path d="M3 20c0-3 3-5 6-5s6 2 6 5"></path></svg></div><div style="flex: 1; min-width: 0"><div class="row" style="justify-content: space-between"><span style="font-weight: 600; font-size: 14px">Meeting minutes, 3 meetings</span><span class="small mono muted">Sep 30 · Oct 2 · Oct 7</span></div><div class="small muted" style="margin-top: 2px">"S-201 comments" carried forward each time. No owner or decision date recorded.</div></div></div>
+          <div class="ev"><div class="evicon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#33475B" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"></rect><path d="M3 9h18M8 2v4M16 2v4"></path></svg></div><div style="flex: 1; min-width: 0"><div class="row" style="justify-content: space-between"><span style="font-weight: 600; font-size: 14px">Project schedule</span><span class="small mono muted">Rev. 12</span></div><div class="small muted" style="margin-top: 2px">Electrical design is linked to S-201 approval. Rough-in start Nov 18 depends on switchgear delivery.</div></div></div>
+        </section>
+
+        <div style="flex: 2 1 340px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+          <section class="card">
+            <h2 class="h2">Possible impact</h2>
+            <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 14px">
+              <div><div class="small muted">Chance the milestone slips</div><div style="font-size: 24px; font-weight: 700; margin-top: 2px">55–70%</div></div>
+              <div><div class="small muted">Possible slip</div><div style="font-size: 24px; font-weight: 700; margin-top: 2px">1–2 weeks</div></div>
+            </div>
+            <div class="small" style="margin-top: 14px; padding-top: 12px; border-top: 1px solid #E6EAEE"><span style="font-weight: 600">Confidence: medium.</span> <span class="muted">One link in the chain is inferred, and the engineer's workload is unknown. The estimate rises if S-201 is still open on Oct 13.</span></div>
+          </section>
+
+          <section class="card" style="border: 2px solid #1B2631">
+            <div class="small" style="font-weight: 600; color: #8A5300">Recommended action</div>
+            <div style="font-weight: 600; font-size: 16px; margin-top: 6px">Confirm the approval status with Dana Okafor and get a realistic decision date</div>
+            <div class="small muted" style="margin-top: 8px">Suggested owner: you · Due: today · Then name an owner for the S-201 comments in Tuesday's meeting</div>
+            <div class="row" style="margin-top: 16px; gap: 10px">
+              <a class="btn btn-primary" href="action.html">Take action</a>
+              <a class="btn btn-ghost" href="action.html">Assign to someone</a>
+            </div>
+            <div class="row small" style="margin-top: 12px; gap: 16px"><button class="btn btn-ghost" type="button" style="min-height: 36px; font-size: 13px">Not a real issue</button><button class="btn btn-ghost" type="button" style="min-height: 36px; font-size: 13px">Snooze 2 days</button></div>
+            <div class="small muted" style="margin-top: 10px">Marking a warning as not real asks for a reason, so the detector learns from it.</div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

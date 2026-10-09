@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Home dashboard</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F4F6F8}
+a{color:#1B2631}a:hover{color:#8A5300}
+.app{display:flex;flex-wrap:wrap;min-height:100vh;font-family:'IBM Plex Sans',sans-serif;color:#18222D;background:#F4F6F8}
+.side{flex:1 1 220px;max-width:100%;background:#1B2631;color:#E8EDF2;padding:24px 16px;box-sizing:border-box;display:flex;flex-direction:column;gap:4px}
+@media(min-width:900px){.side{max-width:248px}}
+.brand{display:flex;align-items:center;gap:10px;padding:0 8px 20px}
+.mark{width:32px;height:32px;border-radius:8px;background:#E89B0C;display:flex;align-items:center;justify-content:center}
+.brandname{font-weight:700;font-size:15px;line-height:1.2;color:#FFFFFF}
+.nav{display:flex;align-items:center;gap:10px;min-height:44px;padding:0 12px;border-radius:8px;color:#C9D3DD;text-decoration:none;font-size:14px;font-weight:500}
+.nav:hover{background:#26384A;color:#FFFFFF}
+.nav.on{background:#2E4357;color:#FFFFFF}
+.navcount{margin-left:auto;background:#E89B0C;color:#1B2631;font-size:12px;font-weight:700;border-radius:10px;padding:1px 8px}
+.who{margin-top:auto;display:flex;align-items:center;gap:10px;padding:16px 8px 0;border-top:1px solid #2E4357}
+.avatar{width:36px;height:36px;border-radius:50%;background:#E89B0C;color:#1B2631;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;flex:none}
+.main{flex:999 1 560px;min-width:0;padding:32px;box-sizing:border-box}
+.wrap{max-width:1160px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
+.card{background:#FFFFFF;border:1px solid #DDE2E8;border-radius:12px;padding:20px}
+.h2{margin:0;font-size:17px;font-weight:600}
+.muted{color:#4A5866}
+.small{font-size:13px}
+.mono{font-family:'IBM Plex Mono',monospace}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;border-radius:999px;padding:3px 10px;white-space:nowrap}
+.high{background:#FBE4DA;color:#9A3410}
+.med{background:#FCEFCF;color:#6E4300}
+.low{background:#E6ECF2;color:#33475B}
+.pot{background:#FFFFFF;color:#6E4300;border:1px dashed #B87503}
+.conf{background:#1B2631;color:#FFFFFF}
+.good{background:#DDF0E5;color:#1D6B45}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 18px;border-radius:8px;font:600 14px 'IBM Plex Sans',sans-serif;text-decoration:none;border:1px solid transparent;cursor:pointer}
+.btn-primary{background:#1B2631;color:#FFFFFF}
+.btn-primary:hover{background:#2E4357;color:#FFFFFF}
+.btn-ghost{background:#FFFFFF;color:#1B2631;border-color:#C7CFD8}
+.btn-ghost:hover{background:#EEF1F4;color:#1B2631}
+.row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.top{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.search{display:flex;align-items:center;gap:8px;min-height:44px;padding:0 14px;border:1px solid #C7CFD8;border-radius:8px;background:#FFFFFF;min-width:260px;box-sizing:border-box}
+.search input{border:0;outline:0;font:14px 'IBM Plex Sans',sans-serif;flex:1;background:transparent;color:#18222D}
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div class="app">
+  <nav class="side" aria-label="Main">
+    <div class="brand">
+      <div class="mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1B2631" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3"></path><path d="M11 8v3l2 2"></path></svg></div>
+      <div class="brandname">Invisible Delay<br>Detector</div>
+    </div>
+    <a class="nav on" href="index.html" aria-current="page"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"></path></svg>Home</a>
+    <a class="nav" href="projects.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="M3 9h18M9 20V9"></path></svg>My Projects</a>
+    <a class="nav" href="warning.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3l9 16H3z"></path><path d="M12 10v4M12 17v.5"></path></svg>Delay Detector<span class="navcount">7</span></a>
+    <a class="nav" href="priorities.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11"></path><path d="M4 6l1 1 2-2M4 12l1 1 2-2M4 18l1 1 2-2"></path></svg>Daily Priorities</a>
+    <a class="nav" href="team.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="8" r="3"></circle><path d="M3 20c0-3 3-5 6-5s6 2 6 5"></path><circle cx="17" cy="9" r="2.5"></circle><path d="M17 14c2.5 0 4 1.5 4 4"></path></svg>Team and Resources</a>
+    <a class="nav" href="outcome.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M8 12l3 3 5-6"></path></svg>Interventions</a>
+    <a class="nav" href="assistant.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"></path></svg>Assistant</a>
+    <div class="who"><div class="avatar">LM</div><div><div style="font-size:14px;font-weight:600;color:#FFFFFF">Lorraine Marezva</div><div style="font-size:12px;color:#AEB9C5">Project manager</div></div></div>
+  </nav>
+
+  <main class="main">
+    <div class="wrap">
+      <div class="top">
+        <div>
+          <div class="muted small">Friday, October 9 · Sample project data</div>
+          <h1 style="margin: 4px 0 0; font-size: 28px; font-weight: 700">Good morning, Lorraine</h1>
+          <p class="muted" style="margin: 6px 0 0; font-size: 15px">2 high-risk warnings need a decision today. Both are potential delays, not yet confirmed.</p>
+        </div>
+        <label class="search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4A5866" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3"></path></svg><span style="position:absolute;left:-9999px">Ask or search</span><input type="text" placeholder="Ask: what could delay my milestones?"></label>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px">
+        <div class="card"><div class="muted small">Active projects</div><div style="font-size: 32px; font-weight: 700; margin-top: 6px">4</div><div class="small muted">1 at risk · 2 watch · 1 on track</div></div>
+        <div class="card"><div class="muted small">Open warnings</div><div style="font-size: 32px; font-weight: 700; margin-top: 6px">7</div><div class="small"><span style="color:#9A3410;font-weight:600">2 high</span><span class="muted"> · 3 medium · 2 low</span></div></div>
+        <div class="card"><div class="muted small">Follow-ups due today</div><div style="font-size: 32px; font-weight: 700; margin-top: 6px">5</div><div class="small muted">3 waiting on replies</div></div>
+        <div class="card"><div class="muted small">Actions verified this quarter</div><div style="font-size: 32px; font-weight: 700; margin-top: 6px">15 of 22</div><div class="small muted">helped prevent the flagged delay</div></div>
+      </div>
+
+      <div style="display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-start">
+        <section class="card" style="flex: 3 1 560px; min-width: 0; padding: 0">
+          <div class="top" style="padding: 20px 20px 12px">
+            <div><h2 class="h2">Delay Detector · top warnings</h2><div class="small muted" style="margin-top: 4px">Ranked by likely impact on your next milestones</div></div>
+            <a class="btn btn-ghost" href="warning.html" style="min-height: 36px">See all 7</a>
+          </div>
+
+          <div style="border-top: 1px solid #DDE2E8; padding: 16px 20px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap">
+            <div style="flex: 1 1 360px; min-width: 0">
+              <div class="row" style="gap: 8px"><span class="chip high">High</span><span class="chip pot">Potential delay</span><span class="small muted">Eastview Community Clinic</span></div>
+              <div style="font-weight: 600; font-size: 15px; margin-top: 8px">Structural drawing S-201 approval is 6 days overdue</div>
+              <div class="small mono muted" style="margin-top: 6px">S-201 approval → Electrical design → Switchgear order → Rough-in start, Nov 18</div>
+              <div class="small muted" style="margin-top: 6px">4 pieces of evidence · 1 dependency still to confirm</div>
+            </div>
+            <a class="btn btn-primary" href="warning.html">Review</a>
+          </div>
+
+          <div style="border-top: 1px solid #DDE2E8; padding: 16px 20px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap">
+            <div style="flex: 1 1 360px; min-width: 0">
+              <div class="row" style="gap: 8px"><span class="chip high">High</span><span class="chip pot">Potential delay</span><span class="small muted">Harbor Street Lofts</span></div>
+              <div style="font-weight: 600; font-size: 15px; margin-top: 8px">Facade material raised in 3 meetings with no decision-maker</div>
+              <div class="small mono muted" style="margin-top: 6px">Facade decision → Curtain wall shop drawings → Fabrication slot, Dec 1</div>
+              <div class="small muted" style="margin-top: 6px">3 sets of meeting minutes · owner not assigned</div>
+            </div>
+            <a class="btn btn-ghost" href="warning.html">Review</a>
+          </div>
+
+          <div style="border-top: 1px solid #DDE2E8; padding: 16px 20px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap">
+            <div style="flex: 1 1 360px; min-width: 0">
+              <div class="row" style="gap: 8px"><span class="chip med">Medium</span><span class="chip conf">Confirmed delay</span><span class="small muted">Maple Logistics Hub</span></div>
+              <div style="font-weight: 600; font-size: 15px; margin-top: 8px">RFI-042 on revised roof loads open for 9 days</div>
+              <div class="small mono muted" style="margin-top: 6px">RFI-042 → Fire protection layout → Sprinkler submittal (now 3 days late)</div>
+              <div class="small muted" style="margin-top: 6px">Submittal log shows the slip · 2 emails</div>
+            </div>
+            <a class="btn btn-ghost" href="warning.html">Review</a>
+          </div>
+
+          <div style="border-top: 1px solid #DDE2E8; padding: 16px 20px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap">
+            <div style="flex: 1 1 360px; min-width: 0">
+              <div class="row" style="gap: 8px"><span class="chip med">Medium</span><span class="chip pot">Potential delay</span><span class="small muted">Eastview Community Clinic</span></div>
+              <div style="font-weight: 600; font-size: 15px; margin-top: 8px">Door hardware spec conflicts with the door schedule</div>
+              <div class="small mono muted" style="margin-top: 6px">Spec conflict → Hardware submittal → Door order lead time 8 weeks</div>
+              <div class="small muted" style="margin-top: 6px">Spec section and schedule disagree on 14 doors</div>
+            </div>
+            <a class="btn btn-ghost" href="warning.html">Review</a>
+          </div>
+        </section>
+
+        <div style="flex: 2 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+          <section class="card">
+            <div class="top"><h2 class="h2">Today's priorities</h2><a class="small" href="priorities.html">All 5</a></div>
+            <ol style="margin: 12px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 14px">
+              <li style="display: flex; gap: 12px"><span class="mono" style="font-weight: 500; color: #8A5300">1</span><div><div style="font-weight: 600; font-size: 14px">Confirm S-201 status with Dana Okafor</div><div class="small muted">Get a realistic decision date · You · due today</div></div></li>
+              <li style="display: flex; gap: 12px"><span class="mono" style="font-weight: 500; color: #8A5300">2</span><div><div style="font-weight: 600; font-size: 14px">Name a decision owner for the facade</div><div class="small muted">Suggested: Priya Nair · due today</div></div></li>
+              <li style="display: flex; gap: 12px"><span class="mono" style="font-weight: 500; color: #8A5300">3</span><div><div style="font-weight: 600; font-size: 14px">Chase the RFI-042 response</div><div class="small muted">Marcus Bell · follow-up 2 of 3</div></div></li>
+            </ol>
+          </section>
+
+          <section class="card" style="background: #1B2631; border-color: #1B2631; color: #FFFFFF">
+            <h2 class="h2" style="color: #FFFFFF">Ask the assistant</h2>
+            <div class="row" style="margin-top: 12px; gap: 8px">
+              <a class="chip" href="assistant.html" style="background: #2E4357; color: #FFFFFF; text-decoration: none; padding: 8px 12px">Which project is most at risk?</a>
+              <a class="chip" href="assistant.html" style="background: #2E4357; color: #FFFFFF; text-decoration: none; padding: 8px 12px">What could delay Nov 18?</a>
+              <a class="chip" href="assistant.html" style="background: #2E4357; color: #FFFFFF; text-decoration: none; padding: 8px 12px">What should I do today?</a>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <section>
+        <div class="top" style="margin-bottom: 12px"><h2 class="h2">My projects</h2><a class="small" href="projects.html">Open project list</a></div>
+        <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px">
+          <a class="card" href="projects.html" style="text-decoration: none; color: #18222D; display: block">
+            <div class="row" style="justify-content: space-between"><span style="font-weight: 600">Eastview Community Clinic</span></div>
+            <div style="margin-top: 8px"><span class="chip high">At risk</span></div>
+            <div class="small muted" style="margin-top: 10px">Next: Rough-in start · Nov 18</div>
+            <div style="height: 6px; background: #E6ECF2; border-radius: 3px; margin-top: 10px"><div style="width: 54%; height: 6px; background: #1B2631; border-radius: 3px"></div></div>
+            <div class="small muted" style="margin-top: 6px">54% complete · 3 warnings</div>
+          </a>
+          <a class="card" href="projects.html" style="text-decoration: none; color: #18222D; display: block">
+            <div style="font-weight: 600">Harbor Street Lofts</div>
+            <div style="margin-top: 8px"><span class="chip med">Watch</span></div>
+            <div class="small muted" style="margin-top: 10px">Next: Shop drawings · Nov 6</div>
+            <div style="height: 6px; background: #E6ECF2; border-radius: 3px; margin-top: 10px"><div style="width: 31%; height: 6px; background: #1B2631; border-radius: 3px"></div></div>
+            <div class="small muted" style="margin-top: 6px">31% complete · 2 warnings</div>
+          </a>
+          <a class="card" href="projects.html" style="text-decoration: none; color: #18222D; display: block">
+            <div style="font-weight: 600">Maple Logistics Hub</div>
+            <div style="margin-top: 8px"><span class="chip med">Watch</span></div>
+            <div class="small muted" style="margin-top: 10px">Next: Permit response · Oct 23</div>
+            <div style="height: 6px; background: #E6ECF2; border-radius: 3px; margin-top: 10px"><div style="width: 68%; height: 6px; background: #1B2631; border-radius: 3px"></div></div>
+            <div class="small muted" style="margin-top: 6px">68% complete · 2 warnings</div>
+          </a>
+          <a class="card" href="projects.html" style="text-decoration: none; color: #18222D; display: block">
+            <div style="font-weight: 600">Northgate School Expansion</div>
+            <div style="margin-top: 8px"><span class="chip good">On track</span></div>
+            <div class="small muted" style="margin-top: 10px">Next: Design review · Oct 30</div>
+            <div style="height: 6px; background: #E6ECF2; border-radius: 3px; margin-top: 10px"><div style="width: 22%; height: 6px; background: #1B2631; border-radius: 3px"></div></div>
+            <div class="small muted" style="margin-top: 6px">22% complete · 0 warnings</div>
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+</body>
+</html>
